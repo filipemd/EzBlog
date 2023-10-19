@@ -13,19 +13,20 @@ def load_info():
 
 def load_articles():
     folders = [item for item in os.listdir(directory_path) if os.path.isdir(os.path.join(directory_path, item))]
-    articles = [{}]
+    articles = []
 
     for i, folder in enumerate(folders):
-        with open(f"articles/{folder}/info.json") as json:
-            articles.append(loads(json.read()))
+        with open(f"articles/{folder}/info.json") as json_file:
+            articles.append(json.loads(json_file.read()))
+            articles[i]["folder"] = folder
     
-    return articles[1:], folders
+    return articles
 
 @app.route("/")
 def index():
-    articles, folders = load_articles()
+    articles = load_articles()
     
-    return render_template("index.html", info=load_info(), articles=articles, folders=folders)
+    return render_template("index.html", info=load_info(), articles=articles)
 
 @app.route("/article/<article>")
 def sarticle(article):
