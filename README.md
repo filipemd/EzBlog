@@ -1,4 +1,4 @@
-#EzBlog
+# EzBlog
 EzBlog is an application, currently in beta version, made in Flask to make it easier for people to create their own blog. It wasn't made for those who don't have knowledge of Flask and HTML, but for those who already know.
 
 It works simply. There is a file called `info.json`, where you will place your blog information.
