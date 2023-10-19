@@ -14,7 +14,7 @@
     <h3>Articles:</h3>
     <div id="articles">
         {% for article in articles | sort(attribute='number', reverse=true) %}
-            <a href='/article/{{ folders[loop.index] }}' class="a">
+            <a href='/article/{{ article["folder"] }}' class="a">
             <div class="article">
                 <h1>{{ article["title"] }}</h1>
                 <h5><em>{{ article["date"] }}</em></h5>
