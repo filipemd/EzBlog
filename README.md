@@ -7,7 +7,8 @@ Structure:
 
 ```
 {
-    "blog-name" : "[blog name]"
+    "blog-name" : "[blog name]",
+    "blog-logo" : "[the blog logo image directory in the static folder. Zero for any logo"
 }
 ```
 
