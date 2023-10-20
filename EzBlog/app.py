@@ -24,9 +24,17 @@ def load_articles():
 
 @app.route("/")
 def index():
+    query = request.args.get('q')  # Obtenha o parâmetro de consulta "q" da URL
     articles = load_articles()
-    
-    return render_template("index.html", info=load_info(), articles=articles)
+
+    if query:
+        query = query.lower()
+
+        # Se houver uma consulta de pesquisa, filtre os artigos com base nela
+        articles = [article for article in articles if (query in article["title"].lower()) or (query in article["description"].lower())]
+
+    return render_template("index.html", info=load_info(), articles=articles, query=query)
+
 
 @app.route("/article/<article>")
 def sarticle(article):
