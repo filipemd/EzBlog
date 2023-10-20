@@ -37,6 +37,9 @@
         {% for article in articles | sort(attribute='number', reverse=true) %}
             <a href='/article/{{ article["folder"] }}' class="a">
             <div class="article">
+                {% if article['image'] != 0 %}
+                    <img src="{{ url_for('static', filename=article['image']) }}" width="500px">
+                {% endif %}
                 <h1>{{ article["title"] }}</h1>
                 <h5><em>{{ article["date"] }}</em></h5>
                 <p>{{ article["description"] }}</p>
