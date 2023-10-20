@@ -1,4 +1,5 @@
 {
     "blog-name" : "Blog",
-    "blog-logo" : 0
+    "blog-logo" : 0,
+    "blog-description" : "Simple blog."
 }
