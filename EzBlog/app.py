@@ -16,7 +16,7 @@ def load_articles():
     articles = []
 
     for i, folder in enumerate(folders):
-        with open(f"articles/{folder}/info.json") as json_file:
+        with open(f"./articles/{folder}/info.json") as json_file:
             articles.append(json.loads(json_file.read()))
             articles[i]["folder"] = folder
     
@@ -40,11 +40,15 @@ def index():
 def sarticle(article):
     json = None
 
-    with open(f"articles/{article}/info.json") as json:
+    with open(f"./articles/{article}/info.json") as json:
         json = loads(json.read())
-    with open(f"articles/{article}/index.md") as carticle:
+    with open(f"./articles/{article}/index.md") as carticle:
         content = carticle.read()
         return render_template("article.html", info=load_info(), content=markdown.markdown(content), article=json)
 
+@app.route("/about")
+def about():
+    return render_template("about.html", info=load_info())
+
 if __name__ == '__main__':
-    app.run(port=5123, debug=True)
+    app.run(host="0.0.0.0", port=5123, debug=True)
