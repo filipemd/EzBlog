@@ -8,11 +8,16 @@
 }
 
 .article {
-    width: 550px;
+    width: 50%;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
     margin-bottom: 10px;
+}
+
+.article img {
+    margin: 5px;
+    width: 50%;
 }
 
 .article * {
