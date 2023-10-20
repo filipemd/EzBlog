@@ -3,5 +3,6 @@
     "title" : "Other Article",
     "date" : "13/10/2023",
     "writer" : "Fulano",
-    "description" : "Another simple article for testing."
+    "description" : "Another simple article for testing.",
+    "image" : 0
 }
