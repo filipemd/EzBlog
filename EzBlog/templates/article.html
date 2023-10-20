@@ -30,10 +30,12 @@
             </form>
         </div>
     </header>
-    
-    <h1>{{ title }}</h1>
-    <em>Written by {{ writer }}.</em><br>
-    <em>{{ date }}</em><br>
+    {% if article['image'] != 0 %}
+        <img src="{{ url_for('static', filename=article['image']) }}" width="500px">
+    {% endif %}
+    <h1>{{ article["title"] }}</h1>
+    <em>Written by {{ article["writer"] }}.</em><br>
+    <em>{{ article["date"] }}</em><br>
     <div id="article">
         {{ content|safe }}
     </div>
