@@ -9,11 +9,33 @@
 
 .article {
     width: 50%;
-    border-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
     margin-bottom: 10px;
+
+    background-color: rgb(240, 240, 240);
 }
 
 .article * {
     margin-left: 10px;
+}
+
+#date {
+    text-align: right;
+}
+
+#form * {
+    float: left;
+    display: block;
+
+    text-align: center;
+}
+
+#header {
+    margin-bottom: 10px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    align-items: center;
 }
