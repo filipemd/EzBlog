@@ -12,7 +12,13 @@
 </head>
 <body>
     <header id="header" style="display: flex; justify-content: space-between;">
-        <a href="/" class="a"><img width="100px" alt="{{ info['blog-name'] }}" src="{{ url_for('static', filename=info['blog-logo']) }}"></a>
+        <a href="/" class="a">
+            {% if info["blog-logo"] != 0 %}
+                <img width="100px" alt="{{ info['blog-name'] }}" src="{{ url_for('static', filename=info['blog-logo']) }}">
+            {% else %}
+                <h1>{{ info["blog-name"] }}</h1>
+            {% endif %}
+        </a>
         <!-- Add the search bar on the right -->
         <div class="search-bar">
             <form action="/" method="get">
