@@ -25,7 +25,8 @@ Structure:
     "title" : "[title of the article]",
     "date" : "[the date where the article was written]",
     "writer" : "[who wrote the article]",
-    "description" : "[the description of the article]"
+    "description" : "[the description of the article]",
+    "image" : "[an image for the article. Zero for none]"
 }
 ```
 
