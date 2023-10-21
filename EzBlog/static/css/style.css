@@ -51,4 +51,9 @@ p, header a {
     .article {
         width: 100%;
     }
+    #header {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap; /* Adicione esta linha para permitir que os elementos quebrem para a próxima linha */
+    }
 }
