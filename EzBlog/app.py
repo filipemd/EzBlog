@@ -43,7 +43,7 @@ def sarticle(article):
     with open(f"./articles/{article}/info.json") as json:
         json = loads(json.read())
     with open(f"./articles/{article}/index.md") as carticle:
-        content = carticle.read()
+        content = render_template_string(carticle.read())
         return render_template("article.html", info=load_info(), content=markdown.markdown(content), article=json)
 
 @app.route("/about")
