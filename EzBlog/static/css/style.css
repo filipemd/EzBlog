@@ -47,13 +47,23 @@ p, header a {
     align-items: center;
 }
 
+#article img, #articleimage {
+    width: 50%;
+}
+
 @media (max-width: 600px) {
     .article {
+        width: 100%;
+    }
+    .article img {
+        width: 90%;
+    }
+    #article img, #articleimage  {
         width: 100%;
     }
     #header {
         display: flex;
         justify-content: space-between;
-        flex-wrap: wrap; /* Adicione esta linha para permitir que os elementos quebrem para a próxima linha */
+        flex-wrap: wrap;
     }
 }
