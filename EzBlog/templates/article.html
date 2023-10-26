@@ -31,7 +31,7 @@
         </div>
     </header>
     {% if article['image'] != 0 %}
-        <img src="{{ url_for('static', filename=article['image']) }}" width="500px">
+        <img src="{{ url_for('static', filename=article['image']) }}" id="articleimage">
     {% endif %}
     <h1>{{ article["title"] }}</h1>
     <em>Written by {{ article["writer"] }}.</em><br>
