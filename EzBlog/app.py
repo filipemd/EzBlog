@@ -6,6 +6,7 @@ from json import loads
 app = Flask(__name__)
 
 directory_path = "articles"
+info = load_info()
 
 def load_info():
     with open("info.json") as info:
@@ -16,7 +17,7 @@ def load_articles():
     articles = []
 
     for i, folder in enumerate(folders):
-        with open(f"./articles/{folder}/info.json") as json_file:
+        with open(f"{directory_path}/{folder}/info.json") as json_file:
             articles.append(json.loads(json_file.read()))
             articles[i]["folder"] = folder
     
@@ -33,22 +34,22 @@ def index():
         # Se houver uma consulta de pesquisa, filtre os artigos com base nela
         articles = [article for article in articles if (query in article["title"].lower()) or (query in article["description"].lower())]
 
-    return render_template("index.html", info=load_info(), articles=articles, query=query)
+    return render_template("index.html", info=info, articles=articles, query=query)
 
 
 @app.route("/article/<article>")
 def sarticle(article):
     json = None
 
-    with open(f"./articles/{article}/info.json") as json:
+    with open(f"{directory_path}/{article}/info.json") as json:
         json = loads(json.read())
-    with open(f"./articles/{article}/index.md") as carticle:
+    with open(f"{directory_path}/{article}/index.md") as carticle:
         content = render_template_string(carticle.read())
-        return render_template("article.html", info=load_info(), content=markdown.markdown(content), article=json)
+        return render_template("article.html", info=info, content=markdown.markdown(content), article=json)
 
 @app.route("/about")
 def about():
-    return render_template("about.html", info=load_info())
+    return render_template("about.html", info=info)
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5123, debug=True)
+    app.run(port=5124, debug=True)
