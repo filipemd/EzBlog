@@ -6,7 +6,6 @@ from json import loads
 app = Flask(__name__)
 
 directory_path = "articles"
-info = load_info()
 
 def load_info():
     with open("info.json") as info:
@@ -22,6 +21,8 @@ def load_articles():
             articles[i]["folder"] = folder
     
     return articles
+
+info = load_info()
 
 @app.route("/")
 def index():
@@ -52,4 +53,4 @@ def about():
     return render_template("about.html", info=info)
 
 if __name__ == '__main__':
-    app.run(port=5124, debug=True)
+    app.run(host="0.0.0.0", port=5124, debug=True)
