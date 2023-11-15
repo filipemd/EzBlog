@@ -42,7 +42,9 @@
                 {% endif %}
                 <h1>{{ article["title"] }}</h1>
                 <h5><em>{{ article["date"] }}</em></h5>
-                <p>{{ article["description"] }}</p>
+                {% if article['description'] != 0 %}
+                    <p>{{ article["description"] }}</p>
+                {% endif %}
             </div>
             </a>
         {% endfor %}
